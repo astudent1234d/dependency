@@ -9,4 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class Movie {
     private String name;
+    private String genre;
+
 }

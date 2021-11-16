@@ -2,7 +2,16 @@ package ru.netology;
 
 public class MovieManager {
 
-    private Movie[] films = new Movie[0];
+    private int numberOfFilms = 10;
+
+    private Movie[] films = new Movie[numberOfFilms];
+
+    public MovieManager(){
+        this.numberOfFilms=numberOfFilms;
+    }
+    public MovieManager(int numberOfFilms){
+        this.numberOfFilms=numberOfFilms;
+    }
 
     public void add(Movie film) {
         // создаём новый массив размером на единицу больше
@@ -20,21 +29,18 @@ public class MovieManager {
         films = tmp;
     }
 
-     public Movie[] getAll() {
-        Movie[] result = new Movie[films.length];
-//         int [] resultLength;
-//        if (!films.equals(10)) {
-//            resultLength = NumberOfDisplayed;
-//        } else {
-//            resultLength =
-//        }
-//         = new [resultLength];
-        // перебираем массив в прямом порядке,
-        // но кладём в результаты в обратном
-        for (int i = 0; i < result.length; i++) {
+    public Movie[] getAll() {
+        Movie[] resultLenght = new Movie[numberOfFilms];
+        int number = 0;
+        for (int i = 0; i < numberOfFilms; i++) {
             int index = films.length - i - 1;
-            result[i] = films[index];
+            if (films[index] != null) {
+                resultLenght[number] = films[index];
+                number += 1;
+            }
         }
+        Movie[] result = new Movie[number];
+        System.arraycopy(resultLenght, 0, result, 0, number);
         return result;
     }
 }
